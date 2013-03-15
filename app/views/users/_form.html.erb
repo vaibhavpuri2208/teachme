@@ -1,0 +1,26 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <p class="muted"><%= pluralize(@user.errors.count, "error") %> prohibited this Company from being saved:</p>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><p class="text-error"><%= msg %></p></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= f.text_field :name, placeholder: "Name" %>
+  </p>
+  <p>
+    <%= f.password_field :password, placeholder: "Password" %>
+  </p>
+  <p>
+    <%= f.password_field :password_confirmation, placeholder: "Please confirm your password" %>
+  </p>
+  <p class="submit">
+    <%= f.button "Sign-up" ,type:'submit', :class =>"button success" %>
+  </p>
+<% end %>

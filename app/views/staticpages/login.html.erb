@@ -1,0 +1,18 @@
+<div class="row">
+
+<div class=" large-4 large-offset-4 columns" style="margin-top:10%;">
+  <fieldset>
+
+    <legend>Login</legend>
+    <%= form_tag('/sessions', :method=>:post, :class=>"") do %>
+      <p><%= text_field_tag :name, params[:name], placeholder: "UserName or Email" %> </p>
+      <p><%= password_field_tag :password, placeholder: "Password" %></p>
+      <p><center><%= submit_tag("Login", :class=>'button ') %></center></p>
+    <%end%>
+  <center>
+    Or
+    <a href="/signup">Sign Up Now?</a>
+  </fieldset>
+
+
+</div>
