@@ -5,7 +5,7 @@ class CoursesController < ApplicationController
 
   def index
     @courses = Course.all
-
+    @user = current_user
     respond_to do |format|
       format.html {render 'index'}
       format.json { render json: @courses }
@@ -21,7 +21,7 @@ class CoursesController < ApplicationController
   end
 
   def create
-    params[:course][:user_id] = current_user
+    params[:course][:user_id] = current_user.id
     @course = Course.create(params[:course])
     if @course.save
       flash[:notice] = "Course was successfully added"

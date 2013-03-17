@@ -18,7 +18,7 @@
         </tr>
       </thead>
       <tbody>
-        <% cnt=0%>
+        <% cnt=1%>
         <% @courses.each do |course| %>
           <tr>
             <td><%= cnt %></td>
@@ -26,6 +26,10 @@
             <td><%= course.description %></td>
             <td><%= Category.find_by_id(course.category_id).name %></td>
             <td><%= User.find_by_id(course.user_id).name %></td>
+
+            <td><%= button_to "Add Course", { :action => "create",controller:'mycourses', :course_id => course.id,:user_id=> 
+              @user.id}, :method => :post, :remote=>true, class: 'button small', :id=>course.id %></td>
+
           </tr>
           <%cnt+=1%>
         <% end %>

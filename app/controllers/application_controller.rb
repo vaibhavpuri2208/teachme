@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
 
   def current_user
-    session[:user_id]
+    user = User.find(session[:user_id])
   end
 
   def validate_login
