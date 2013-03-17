@@ -1,0 +1,23 @@
+ <%= form_for(@course) do |f| %>
+    <% if @course.errors.any? %>
+      <div class="alert alert-error">
+        <p class="text-error"e><%= #pluralize(@course.errors.count, "error") %> prohibited this event from being saved:</p>
+        <ul>
+          <% @course.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <p>
+      <%= f.label "Course Name"%>
+      <%= f.text_field :name %>
+    </p>
+    <p>
+      <%= f.label "Course Description" %>
+      <%= f.text_field :description %>
+    </p>
+    <p>
+      <%= f.submit :class => 'button' %>
+    </p>
+<% end %>

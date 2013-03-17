@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="large-11 small-offset-1 columns">
+    <h3 class="subheader">New stuff for you to learn!</h3>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-11 small-offset-1 columns">
+    
+    <table>
+      <thead>
+        <tr>
+          <th width="100">Sr. No</th>
+          <th width="300">Course Name</th>
+          <th width="400">Course Description</th>
+          <th width="">Course Category</th>
+          <th width="">Author</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% cnt=0%>
+        <% @courses.each do |course| %>
+          <tr>
+            <td><%= cnt %></td>
+            <td><%= course.name %></td>
+            <td><%= course.description %></td>
+            <td><%= Category.find_by_id(course.category_id).name %></td>
+            <td><%= User.find_by_id(course.user_id).name %></td>
+          </tr>
+          <%cnt+=1%>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
