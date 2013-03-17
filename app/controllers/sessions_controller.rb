@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
       redirect_to :login
     else
       session[:user_id] = result_object.id
-      redirect_to :index
+      redirect_to courses_path
     end
   end
 
