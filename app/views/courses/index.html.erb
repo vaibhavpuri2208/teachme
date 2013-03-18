@@ -10,7 +10,7 @@
     <table>
       <thead>
         <tr>
-          <th width="100">Sr. No</th>
+          <th width="100">Course. No</th>
           <th width="300">Course Name</th>
           <th width="400">Course Description</th>
           <th width="">Course Category</th>
@@ -20,8 +20,8 @@
       <tbody>
         <% cnt=1%>
         <% @courses.each do |course| %>
-          <tr>
-            <td><%= cnt %></td>
+          <%=tag(:tr,:id=>course.id)%>
+            <td><%= 'CR-'+ course.id.to_s %></td>
             <td><%= course.name %></td>
             <td><%= course.description %></td>
             <td><%= Category.find_by_id(course.category_id).name %></td>

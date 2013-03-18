@@ -1,4 +1,6 @@
 var divid = '#' +<%= @thecourse %>
+var trid=  'tr#' + <%= @thecourse %>
 
 $(divid).attr("value","added").attr("disabled","true")
+$(trid).fadeOut()
 

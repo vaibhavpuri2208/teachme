@@ -12,7 +12,19 @@ class MycoursesController < ApplicationController
   end
   
 
+ def index
+  @mycourses = Mycourse.where(:user_id=>current_user.id)
+  render 'index'
+ end
 
+ def destroy
+  @thecourse = Mycourse.find(params[:id])
+  @identity = @thecourse.id
+  @thecourse.destroy
+  respond_to do |format|  
+    format.js  
+    end
+ end
 
 
 end

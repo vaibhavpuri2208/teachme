@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="large-11 small-offset-1 columns">
+    <h3 class="subheader">You've signed up for the following courses</h3>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-11 small-offset-1 columns">
+    
+    <table>
+      <thead>
+        <tr>
+          <th width="100">Course. No</th>
+          <th width="300">Course Name</th>
+          <th width="400">Course Description</th>
+          <th width="">Course Category</th>
+          <th width="">Author</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <% @mycourses.each do |mycourse| %>
+          <%=tag(:tr,:id=>mycourse.id)%>
+            <td><%= 'CR-'+ mycourse.course.id.to_s %></td>
+            <td><%= mycourse.course.name %></td>
+            <td><%= mycourse.course.description %></td>
+            <td><%= mycourse.course.category.name %></td>
+            <td><%= mycourse.course.user.name %></td>
+            <td><%= button_to "Remove Course",  { :action => "destroy", :id => mycourse.id}, :method => :delete, :remote=>true , class: 'button small' %></td>
+
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

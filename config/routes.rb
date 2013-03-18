@@ -7,11 +7,10 @@ Teachme::Application.routes.draw do
 
   get '/signout', to: 'sessions#destroy', as: 'signout'
 
+  resources :mycourses
   resources :sessions
   resources :users
   resources :courses
-  resources :mycourses
-
 
 
  

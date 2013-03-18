@@ -4,6 +4,9 @@ class Course < ActiveRecord::Base
 
 validates :name, :user_id, :description, :category_id, :presence=>true
 has_many :mycourses
+belongs_to :category
+belongs_to :user
+
 
   def self.not_selected_courses(user)
     @courses_selected = Mycourse.where(user_id:user.id)

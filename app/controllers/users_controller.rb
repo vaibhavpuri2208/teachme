@@ -16,7 +16,7 @@ class UsersController < ApplicationController
       if @user.save
       session[:user_id] = @user.id
       flash[:notice] ="Account Created Successfully"  
-        format.html {redirect_to :index}
+        format.html {redirect_to courses_path}
         format.json { render json: @user }
       else
        session[:user_id] = nil
