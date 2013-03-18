@@ -4,8 +4,8 @@ class CoursesController < ApplicationController
 
 
   def index
-    @courses = Course.all
     @user = current_user
+    @courses = Course.not_selected_courses(@user)
     respond_to do |format|
       format.html {render 'index'}
       format.json { render json: @courses }
